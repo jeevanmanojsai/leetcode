@@ -1,10 +1,24 @@
+// class Solution {
+// public:
+//     vector<int> buildArray(vector<int>& nums) {
+//         vector<int> ans(nums.size());
+//         for (int i = 0; i < nums.size(); i++) {
+//             ans[i] = nums[nums[i]];
+//         }
+//         return ans;
+//     }
+// };
+
 class Solution {
 public:
     vector<int> buildArray(vector<int>& nums) {
-        vector<int> ans(nums.size());
-        for (int i = 0; i < nums.size(); i++) {
-            ans[i] = nums[nums[i]];
+        int n=nums.size();
+        for(int i=0;i<n;i++){
+            nums[i]=n*(nums[nums[i]]%n) +nums[i];
         }
-        return ans;
+        for(int i=0;i<n;i++){
+            nums[i]=nums[i]/n;
+        }
+        return nums;
     }
 };
